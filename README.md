@@ -2,9 +2,8 @@
 
 A sample Django API app that can be deployed as an Azure API App (part of an Azure App Service). This project uses common Pything/Django tools such as
     - djangorestframework
-    - mysql-connector-python
+    - PyMySQL
     - waitress
-    - python-dotenv
 
 ## Dev Setup
 
@@ -53,8 +52,10 @@ Assumption is you are running Ubuntu or WSL (Windows Subsystem for Linux/Bash on
 
 1. Create your API app
 1. Connect to your git/github repo
-1. For Python 3.4 go into `App Settings` and enable Python 3.4
+1. Go into `App Settings` and enable Python 3.4
 1. Go to `Extensions` and install `Python 3.5.3 x64`
-1. In cloud shell in d:\home\site\wwwroot run the following to create a super user
+1. In cloud shell in d:\home\site\wwwroot run the following (run migrations and setup a super user)
+
+        env\scripts\python manage.py migrate
 
         echo from django.contrib.auth.models import User; User.objects.filter(email='admin@example.com').delete(); User.objects.create_superuser('admin', 'admin@example.com', 'password') | env\scripts\python manage.py shell
