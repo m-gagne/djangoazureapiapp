@@ -55,3 +55,6 @@ Assumption is you are running Ubuntu or WSL (Windows Subsystem for Linux/Bash on
 1. Connect to your git/github repo
 1. For Python 3.4 go into `App Settings` and enable Python 3.4
 1. Go to `Extensions` and install `Python 3.5.3 x64`
+1. In cloud shell in d:\home\site\wwwroot run the following to create a super user
+
+        echo from django.contrib.auth.models import User; User.objects.filter(email='admin@example.com').delete(); User.objects.create_superuser('admin', 'admin@example.com', 'password') | env\scripts\python manage.py shell
